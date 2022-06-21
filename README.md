@@ -51,14 +51,18 @@ endstep0-->
 <details id=1>
 <summary><h2>Step 1: Create a workflow file</h2></summary>
 
-_Welcome to "Hello GitHub Actions"! :wave:_
+_Welcome to "Hello GitHub Actions"! :wave:_ 
+
+:wave:
+
+:wave:
 
 **What is _GitHub Actions_?**: GitHub Actions is a flexible way to automate nearly every aspect of your team's software workflow. You can automate testing, continuously deploy, review code, manage issues and pull requests, and much more. The best part, these workflows are stored as code in your repository and easily shared and reused across teams. To learn more, check out these resources:
 
--  The GitHub Actions feature page, see  [GitHub Actions](https://github.com/features/actions).
--  The "GitHub Actions" user documentation, see [GitHub Actions](https://docs.github.com/actions).
+- The GitHub Actions feature page, see  [GitHub Actions](https://github.com/features/actions).
+- The "GitHub Actions" user documentation, see [GitHub Actions](https://docs.github.com/actions).
 
-**What is a _workflow_?**: A workflow is a configurable automated process that will run one or more jobs. Workflows are defined in special files in the `.github/workflows` directory and they execute based on your chosen event. For this exercise, we'll use a `pull_request` event. 
+**What is a _workflow_?**: A workflow is a configurable automated process that will run one or more jobs. Workflows are defined in special files in the `.github/workflows` directory and they execute based on your chosen event. For this exercise, we'll use a `pull_request` event.
 
 - To read more about workflows, jobs, and events, see "[Understanding GitHub Actions](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions)".
 - If you want to learn more about the `pull_request` event before using it, see "[pull_request](https://docs.github.com/en/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request)".
@@ -73,12 +77,14 @@ To get you started, we used actions to go ahead and made a branch and pull reque
 1. Navigate to the `.github/workflows/` folder, then select **Add file** and click on **Create new file**.
 1. In the **Name your file...** field, enter `welcome.yml`.
 1. Add the following content to the `welcome.yml` file:
+
    ```yaml
    name: Post welcome comment
    on:
      pull_request:
        types: [opened]
    ```
+
 1. To commit your changes, click **Commit new file**.
 1. Wait about 20 seconds for actions to run, then refresh this page (the one you're following instructions from) and an action will automatically close this step and open the next one.
 
@@ -109,8 +115,9 @@ In this step of our exercise, we will add a "build" job. We will specify `ubuntu
 
 ### :keyboard: Activity: Add a job to your workflow file
 
-1. Open your `welcome.yml` file. 
+1. Open your `welcome.yml` file.
 2. Update the contents of the file to:
+
    ```yaml
    name: Post welcome comment
    on:
@@ -121,6 +128,7 @@ In this step of our exercise, we will add a "build" job. We will specify `ubuntu
        name: Post welcome comment
        runs-on: ubuntu-latest
    ```
+
 3. Click **Start commit** in the top right of the workflow editor.
 4. Type your commit message and commit your changes directly to your branch.
 5. Wait about 20 seconds for actions to run, then refresh this page (the one you're following instructions from) and an action will automatically close this step and open the next one.
@@ -148,6 +156,7 @@ In our action, we post a comment on the pull request using a [bash](https://en.w
 
 1. Open your `welcome.yml` file.
 2. Update the contents of the file to:
+
    ```yaml
    name: Post welcome comment
    on:
@@ -163,6 +172,7 @@ In our action, we post a comment on the pull request using a [bash](https://en.w
              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
              PR_URL: ${{ github.event.pull_request.html_url }}
    ```
+
 3. Click **Start commit** in the top right of the workflow editor.
 4. Type your commit message and commit your changes directly to your branch.
 5. Wait about 20 seconds for actions to run, then refresh this page (the one you're following instructions from) and an action will automatically close this step and open the next one.
